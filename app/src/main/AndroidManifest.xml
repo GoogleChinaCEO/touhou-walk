@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <!--http://stackoverflow.com/a/34061521/5257399-->
     <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION"/>
+    <!-- Exclude apps from battery optimization -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +19,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,8 +31,12 @@
             android:enabled="true"
             android:name=".services.walker.WalkerService"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="Walker Service"
+            android:label="@string/srv_name"
             >
+            <intent-filter android:priority="1000" >
+                <action android:name="uk.co.birchlabs.touhouwalk.services.walker.WalkerService" />
+            </intent-filter>
+
         </service>
     </application>
 

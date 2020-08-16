@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     private void stopServiceIfRunning() {
         if (isMyServiceRunning(WalkerService.class)) {
             stopService();
+            Toast.makeText(this,R.string.srv_stop_suce,Toast.LENGTH_LONG).show();
         }
     }
 
@@ -218,9 +220,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //        setTitle(R.string.app_name);
-
         stopServiceIfRunning();
-
+ /*       if(isMyServiceRunning(WalkerService.class)){
+        stopServiceIfRunning();}
+        else {
+        Log.d("MainActivity","Service is not running");
+        }
+*/
         initForm();
         configureFormGivenServiceNotRunning();
     }
@@ -250,6 +256,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopServiceIfRunning();
     }
 }

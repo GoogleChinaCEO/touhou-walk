@@ -99,4 +99,6 @@
     <string name="miko_name_yuugi">Yuugi Hoshiguma</string>
     <string name="miko_name_yuuka">Yuuka Kazami</string>
     <string name="miko_name_yuyuko">Yuyuko Saigyouji</string>
+    <string name="srv_stop_suce">Destroy Service successed!</string>
+    <string name="srv_name">Walker Service</string>
 </resources>

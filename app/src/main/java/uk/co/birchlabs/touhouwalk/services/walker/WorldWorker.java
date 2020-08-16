@@ -79,7 +79,7 @@ public class WorldWorker extends Thread {
                 sleep(Math.max(10, sleepTime));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                Log.i(logTag, "Interrupted during sleep", e);
+                Log.d(logTag, "Interrupted during sleep", e);
             }
         }
     }
